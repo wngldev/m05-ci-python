@@ -4,7 +4,7 @@ test_calculadora.py — Suite de tests para el módulo calculadora.
 Ejecutar con: pytest tests/ --verbose
 """
 import pytest
-from src.calculadora import sumar, restar, multiplicar, dividir
+from src.calculadora import sumar, restar, multiplicar, dividir, potencia
 
 
 # ── Tests de suma ──────────────────────────────────────────────
@@ -54,3 +54,12 @@ class TestDividir:
     def test_division_por_cero_lanza_excepcion(self):
         with pytest.raises(ValueError, match="No se puede dividir entre cero"):
             dividir(5, 0)
+
+
+# ── Tests de potencia ──────────────────────────────────────────
+class TestPotencia:
+    def test_potencia_positiva(self):
+        assert potencia(2, 3) == 8
+
+    def test_potencia_cero(self):
+        assert potencia(5, 0) == 1
